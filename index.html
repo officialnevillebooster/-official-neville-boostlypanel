@@ -2,169 +2,212 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>BoostlyPanel | Neville</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+<title>BoostlyPanel - Neville</title>
 <style>
-*{margin:0;padding:0;box-sizing:border-box;font-family:-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,sans-serif}
-body{background:#fff;color:#111;min-height:100vh;padding-bottom:90px}
-header{display:flex;align-items:center;justify-content:space-between;padding:12px 14px;position:sticky;top:0;background:#fff;z-index:10;border-bottom:1px solid #f0f0f0}
-.logo{display:flex;align-items:center;gap:6px;font-weight:800;font-size:19px}
-.logo b{background:#000;color:#fff;width:28px;height:28px;display:grid;place-items:center;border-radius:7px;font-size:18px}
-.lang{font-size:13px;display:flex;gap:8px}
-.lang.en{color:#6b46fe;font-weight:700;text-decoration:underline}
-.balance{font-weight:700;font-size:14px;background:#f6f6f6;padding:6px 10px;border-radius:20px}
-.balance span{background:#22c55e;color:#fff;width:16px;height:16px;display:inline-grid;place-items:center;border-radius:50%;font-size:10px;margin-left:4px}
-.search{margin:10px 14px;background:#f2f2f5;border-radius:12px;padding:10px 14px;display:flex;align-items:center;gap:8px}
-.search input{border:none;background:transparent;outline:none;width:100%;font-size:15px}
-.cat{display:flex;align-items:center;justify-content:space-between;padding:14px;border-bottom:1px solid #f5f5f5;cursor:pointer}
-.cat:active{background:#fafafa}
-.cat-left{display:flex;align-items:center;gap:12px;font-weight:600;font-size:15px}
-.icon{width:32px;height:32px;border-radius:8px;display:grid;place-items:center;color:#fff;font-size:16px}
-.fb{background:#1877F2}.tt{background:#000}.tg{background:#229ED9}.ig{background:linear-gradient(45deg,#feda75,#fa7e1e,#d62976,#962fbf,#4f5bd5)}
-.sn{background:#FFFC00;color:#000}.wa{background:#25D366}.xt{background:#000}.dc{background:#5865F2}.yt{background:#FF0000}.ps{background:#fff;border:1px solid #eee}.as{background:#0a84ff}.wb{background:#e5e7eb;color:#333}
+*{margin:0;padding:0;box-sizing:border-box;font-family:-apple-system,BlinkMacSystemFont,Segoe UI,Roboto}
+body{background:#fff;color:#111;padding-bottom:90px}
+header{display:flex;justify-content:space-between;align-items:center;padding:10px 12px;background:#fff;border-bottom:1px solid #f0f0f0;position:sticky;top:0;z-index:10}
+.logo{display:flex;align-items:center;gap:6px;font-weight:900;font-size:18px}
+.logo img{width:28px;height:28px;border-radius:7px}
+.lang{font-size:13px}.lang b{color:#6b46fe;text-decoration:underline}
+.bal{font-weight:700;font-size:13px;background:#f6f6f6;padding:6px 10px;border-radius:20px}
+.bal span{background:#22c55e;color:#fff;width:16px;height:16px;display:inline-grid;place-items:center;border-radius:50%;font-size:10px;margin-left:4px}
+.search{margin:10px 12px;background:#f2f2f5;border-radius:12px;padding:10px 14px;display:flex;gap:8px}
+.search input{border:none;background:0;outline:none;width:100%;font-size:15px}
+.item{display:flex;justify-content:space-between;align-items:center;padding:13px 12px;border-bottom:1px solid #f6f6f6;cursor:pointer}
+.item:active{background:#fafafa}
+.l{display:flex;align-items:center;gap:12px;font-weight:600;font-size:14px}
+.ic{width:32px;height:32px;border-radius:8px;display:grid;place-items:center;color:#fff;font-size:15px;font-weight:700}
+.fb{background:#1877F2}.tt{background:#000}.tg{background:#229ED9}.ig{background:linear-gradient(45deg,#feda75,#fa7e1e,#d62976,#962fbf,#4f5bd5)}.sn{background:#FFFC00;color:#000}.wa{background:#25D366}.xt{background:#000}.dc{background:#5865F2}.yt{background:#FF0000}.ps{background:#eee;color:#000}.wb{background:#e5e7eb;color:#333}.as{background:#000}
 .arrow{color:#bbb}
-#view-category{display:none;padding:10px 14px}
-.back{width:32px;height:32px;border-radius:50%;background:#f2f2f5;display:grid;place-items:center;cursor:pointer;margin-bottom:10px}
-.cat-title{font-weight:800;text-align:center;font-size:18px;margin:10px 0 14px}
-.service{padding:12px 10px;border:1px solid #f0f0f0;border-radius:12px;margin-bottom:10px;display:flex;align-items:center;justify-content:space-between}
-.service small{color:#666;font-size:12px}
-.bottom{position:fixed;bottom:12px;left:50%;transform:translateX(-50%);background:#fff;border:1px solid #eee;box-shadow:0 10px 30px rgba(0,0,0,.1);border-radius:30px;display:flex;gap:8px;padding:6px;z-index:20}
-.bbtn{padding:10px 22px;border-radius:20px;font-size:13px;font-weight:600;border:none;cursor:pointer;display:flex;align-items:center;gap:6px}
+.view{display:none;padding:0}
+.topbar{display:flex;align-items:center;gap:10px;padding:12px;border-bottom:1px solid #f0f0f0;position:sticky;top:0;background:#fff;z-index:5}
+.back{width:32px;height:32px;border-radius:50%;background:#f2f2f5;display:grid;place-items:center;cursor:pointer}
+.center{flex:1;text-align:center}
+.center b{font-size:16px}
+.center small{color:#666;font-size:12px;display:block}
+.service-row{padding:12px;border-bottom:1px solid #f5f5f5;display:flex;justify-content:space-between;align-items:center;gap:8px}
+.service-row.price{color:#6b46fe;font-weight:700;font-size:13px;white-space:nowrap}
+.service-row p{font-size:13px;line-height:1.3}
+.order-box{padding:14px}
+.chips{display:flex;flex-wrap:wrap;gap:8px;margin:10px 0}
+.chip{padding:8px 16px;border-radius:20px;border:1px solid #e5e7eb;background:#f9f9f9;font-size:13px;cursor:pointer}
+.chip.active{background:#efeaff;border-color:#6b46fe;color:#6b46fe;font-weight:700}
+.inp{width:100%;padding:12px;border:1px solid #ddd;border-radius:10px;margin:6px 0 12px;outline:none}
+.row2{display:flex;justify-content:space-between;padding:10px 0;border-top:1px solid #f0f0f0;font-size:14px}
+.btn-purple{width:100%;background:#6b46fe;color:#fff;border:none;padding:14px;border-radius:12px;font-weight:800;font-size:15px;margin-top:12px}
+.bottom{position:fixed;bottom:12px;left:50%;transform:translateX(-50%);background:#fff;border:1px solid #eee;box-shadow:0 10px 30px rgba(0,0,0,.12);border-radius:30px;display:flex;gap:6px;padding:6px;z-index:20}
+.bbtn{padding:10px 20px;border-radius:20px;border:none;font-weight:600;font-size:13px;display:flex;align-items:center;gap:6px;background:#fff}
 .bbtn.active{background:#f3f0ff;color:#6b46fe}
 .bbtn.create{background:#efeaff;color:#6b46fe;border:1px solid #e0d7ff}
-.float{position:fixed;bottom:90px;right:14px;display:flex;flex-direction:column;gap:8px}
-.fbtn{width:38px;height:38px;border-radius:50%;display:grid;place-items:center;color:#fff;font-size:18px}
-.tele{background:#229ED9}.what{background:#25D366}
-.orders-empty{text-align:center;margin-top:60px}
-.orders-empty.cart{width:60px;height:60px;background:#f3f0ff;border-radius:18px;display:grid;place-items:center;margin:0 auto 14px;font-size:28px;color:#6b46fe}
-.btn-outline{margin:14px auto;display:block;padding:8px 18px;border-radius:20px;border:1px solid #ddd;background:#fff;color:#6b46fe;font-weight:600}
-.menu-list.cat{border:none}
+.float{position:fixed;bottom:90px;right:12px;display:flex;flex-direction:column;gap:8px;z-index:15}
+.fbtn{width:42px;height:42px;border-radius:50%;display:grid;place-items:center;color:#fff;font-size:20px;box-shadow:0 4px 12px rgba(0,0,0,.2)}
+.tel{background:#229ED9}.wha{background:#25D366}
+.most{font-size:10px;background:#ff3b30;color:#fff;padding:2px 6px;border-radius:10px;margin-left:6px}
 </style>
 </head>
 <body>
 <header>
-<div class="logo"><b>B</b> oostlypanel</div>
-<div class="lang"><span class="en">EN</span><span>FR</span></div>
-<div class="balance">0 FCFA <span>+</span></div>
+<div class="logo"><div style="background:#000;color:#fff;width:28px;height:28px;display:grid;place-items:center;border-radius:8px">B</div> oostlypanel</div>
+<div class="lang"><b>EN</b> / FR</div>
+<div class="bal">0 FCFA <span>+</span></div>
 </header>
 
-<div id="view-home">
-<div class="search">🔍 <input id="search" placeholder="Search" oninput="filter()"></div>
-<div id="networkList"></div>
+<div id="view-main">
+<div class="search">🔍 <input id="searchMain" placeholder="Search" oninput="filterMain()"></div>
+<div id="mainList"></div>
 </div>
 
-<div id="view-category">
-<div class="back" onclick="goHome()">←</div>
-<div style="text-align:center"><span id="catIcon"></span><div id="catName" class="cat-title">FACEBOOK</div><div style="font-size:13px;color:#666;margin-top:-10px;margin-bottom:12px">Select category</div></div>
-<div id="serviceList"></div>
+<div id="view-cat" class="view">
+<div class="topbar"><div class="back" onclick="goMain()">←</div><div class="center"><b id="catTitle">FACEBOOK</b><small>Select category</small></div><div style="width:32px"></div></div>
+<div id="catList"></div>
 </div>
 
-<div id="view-orders" style="display:none;padding:14px">
-<div class="search">🔍 <input placeholder="URL or order id"></div>
-<div style="display:flex;gap:8px;margin:12px 0"><span class="bbtn active">All</span><span class="bbtn">In Progress</span><span class="bbtn">Pending</span></div>
-<div class="orders-empty"><div class="cart">🛒</div><div style="font-weight:700">You didn't create any orders yet</div><button class="btn-outline" onclick="goHome()">Make an order</button></div>
+<div id="view-svc" class="view">
+<div class="topbar"><div class="back" onclick="goCat()">←</div><div class="center"><b id="svcTitle">Service</b><small id="svcPrice">Price for 100</small></div><div style="width:32px"></div></div>
+<div id="svcList"></div>
 </div>
 
-<div id="view-menu" style="display:none;padding:10px 14px" class="menu-list">
-<div class="cat"><div class="cat-left">📦 Mass order</div><div class="arrow">›</div></div>
-<div class="cat"><div class="cat-left">🔌 API</div><div class="arrow">›</div></div>
-<div class="cat"><div class="cat-left">💬 Support</div><div class="arrow">›</div></div>
-<div class="cat"><div class="cat-left">🎁 Bonus 10%</div><div class="arrow">›</div></div>
-<div class="cat"><div class="cat-left">👤 Profile</div><div class="arrow">›</div></div>
-<div class="cat"><div class="cat-left">📄 Terms of service</div><div class="arrow">›</div></div>
-<div class="cat"><div class="cat-left">🔒 Privacy policy</div><div class="arrow">›</div></div>
+<div id="view-order" class="view">
+<div class="topbar"><div class="back" onclick="goSvc()">←</div><div class="center"><b>Creating order</b></div><div style="width:32px"></div></div>
+<div class="order-box">
+<div style="text-align:center;margin:10px 0"><div id="orderIcon" style="margin:0 auto"></div><div id="orderName" style="font-weight:700;font-size:14px;margin-top:8px;line-height:1.3"></div><small style="color:#666">Service ID <span id="serviceId">1112</span></small></div>
+<label style="font-size:13px;font-weight:600">Amount</label>
+<div class="chips" id="chips">
+<div class="chip" onclick="setAmt(100)">100</div><div class="chip" onclick="setAmt(500)">500</div><div class="chip active" onclick="setAmt(1000)">1 000</div><div class="chip" onclick="setAmt(2500)">2 500</div><div class="chip" onclick="setAmt(5000)">5 000</div><div class="chip" onclick="customAmt()">Choose own</div>
+</div>
+<label style="font-size:13px;font-weight:600">Link</label>
+<input id="orderLink" class="inp" placeholder="https://...">
+<div class="row2"><span>Amount</span><b id="orderAmt">1000</b></div>
+<div class="row2"><span>Price</span><b id="orderPrice" style="color:#6b46fe">0 FCFA</b></div>
+<button class="btn-purple" onclick="createOrder()">Create order</button>
+<div style="display:flex;justify-content:space-between;margin-top:12px;font-size:12px;color:#666"><span>Service ID 1112</span><span>Favorite ○</span></div>
+</div>
 </div>
 
-<div class="float"><div class="fbtn tele">✈</div><div class="fbtn what">W</div></div>
+<div id="view-orders" class="view" style="padding:14px">
+<div class="topbar"><div class="back" onclick="goMain()">←</div><div class="center"><b>Orders</b></div><div style="width:32px"></div></div>
+<div id="ordersContent" style="text-align:center;margin-top:60px"><div style="width:60px;height:60px;background:#f3f0ff;display:grid;place-items:center;margin:0 auto 10px;border-radius:15px">🛒</div><b>You didn't create any orders yet</b></div>
+</div>
+
+<div class="float"><a href="https://t.me/" target="_blank" class="fbtn tel">✈</a><a href="https://wa.me/237652706414" target="_blank" class="fbtn wha">W</a></div>
 
 <div class="bottom">
-<button class="bbtn active" id="btn-orders" onclick="show('orders')">🛒 Orders</button>
-<button class="bbtn create" onclick="goHome()">✦ Create</button>
-<button class="bbtn" id="btn-menu" onclick="show('menu')">⊞ Menu</button>
+<button class="bbtn" onclick="showOrders()">🛒 Orders</button>
+<button class="bbtn create active" onclick="goMain()">✦ Create</button>
+<button class="bbtn" onclick="alert('Menu: Support wa.me/237652706414')">⊞ Menu</button>
 </div>
 
 <script>
-const networks=[
-{id:'FACEBOOK',icon:'f',cls:'fb',label:'FACEBOOK'},
-{id:'TIKTOK',icon:'♪',cls:'tt',label:'TIKTOK'},
-{id:'TELEGRAM',icon:'✈',cls:'tg',label:'TELEGRAM'},
-{id:'INSTAGRAM',icon:'◎',cls:'ig',label:'INSTAGRAM'},
-{id:'SNAPCHAT',icon:'👻',cls:'sn',label:'SNAPCHAT'},
-{id:'WHATSAPP',icon:'W',cls:'wa',label:'WHATSAPP'},
-{id:'X / TWITTER',icon:'X',cls:'xt',label:'X / TWITTER'},
-{id:'DISCORD',icon:'D',cls:'dc',label:'DISCORD'},
-{id:'YOUTUBE',icon:'▶',cls:'yt',label:'YOUTUBE'},
-{id:'PLAY STORE',icon:'▶',cls:'ps',label:'PLAY STORE'},
-{id:'APP STORE',icon:'A',cls:'as',label:'APP STORE'},
-{id:'WEBSITES',icon:'🌐',cls:'wb',label:'WEBSITES'},
+const CATS=[
+{id:'WHATSAPP',icon:'W',cls:'wa',subs:['WhatsApp _ (Channel Members 👥_Online, Non Drop)','WhatsApp _ (Channel Auto Post Reactions 🥰_Future Post)','WhatsApp _ (Channel Post Emoji Reactions 😍❤️🔥)','WhatsApp _ (Reactions 😍❤️_Varieties_)','WhatsApp _ (Poll Votes 🗳️)']},
+{id:'FACEBOOK',icon:'f',cls:'fb',subs:['Facebook - (Followers 👥)','Facebook - (Post Reactions) 🥰❤️','Facebook - (Group Members 👥)','Facebook - (⚠️ Likes & Followers)_bonus_','Facebook - (📤 Shares/Reaction)','Facebook - (Likes) 👍','Facebook - (Video Views) 👀','Facebook - (👤 Friend Request)','Facebook - (Custom/Random Comments)','Facebook - (Live Stream Views) cheapest']},
+{id:'X / TWITTER',icon:'X',cls:'xt',subs:['X - Followers','X - Likes','X - Retweets','X - Views']},
+{id:'TIKTOK',icon:'♪',cls:'tt',subs:['TikTok - (Followers; Male/Female 👱_🙍_Real Names)','TikTok - (Likes 👍_Real Names)','TikTok - (👁️ Views)_Fast entry_','TikTok - (Shares 📤)','TikTok - (Live Stream Likes ❤️_Fast)','TikTok - (Live Stream Views+ 👀)','TikTok - (Comments ✍️)','TikTok - (Battle Likes / BK Points+ ❤️_Fast, Non Drop)','TikTok - (Saves 🔖)']},
+{id:'DISCORD',icon:'D',cls:'dc',subs:['Discord - Server Members','Discord - Reactions']},
+{id:'TELEGRAM',icon:'✈',cls:'tg',subs:['Telegram - Regular Members','Telegram - Reactions','Telegram - Views']},
+{id:'YOUTUBE',icon:'▶',cls:'yt',subs:['Youtube _ (👥 Subscribers & Watch Time + 👀)','Youtube _ (👁️+ Views)_Non drop_','Youtube _ (Likes; Videos & Shorts)_Lifetime_','Youtube _ (Live Stream Views+ 👀)','Youtube _ (Comment Likes ❤️)','Youtube _ (Comments ✍️_Custom/Random_']},
+{id:'INSTAGRAM',icon:'◎',cls:'ig',subs:['Instagram - Followers','Instagram - Likes','Instagram - Views']},
+{id:'PLAY STORE',icon:'▶',cls:'ps',subs:['Play Store - Installs']},
+{id:'SNAPCHAT',icon:'👻',cls:'sn',subs:['Snapchat - Spotlight']},
+{id:'APP STORE',icon:'A',cls:'as',subs:['App Store - Reviews']},
+{id:'WEBSITES',icon:'🌐',cls:'wb',subs:['WEBSITES...']},
 ];
 
-const services={
-'FACEBOOK':['Facebook - (Followers 👥)','Facebook - (Post Reactions) 🥰❤️','Facebook - (Group Members 👥)','Facebook - (⚠️ Likes & Followers)_bonus_','Facebook - (📤 Shares/Reaction)','Facebook - (Likes) 👍','Facebook - (Video Views) 👀','Facebook - (👤 Friend Request)','Facebook - (Custom/Random Comments...)','Facebook - (Live Stream Views) cheapest'],
-'TIKTOK':['TikTok - (Followers; Male/Female 👱_🙍_Real Names)','TikTok - (Likes 👍_Real Names)','TikTok - (👁️ Views)_Fast entry_','TikTok - (Shares 📤)','TikTok - (Live Stream Likes ❤️_Fast)','TikTok - (Live Stream Views+ 👀)','TikTok - (Comments ✍️)','TikTok - (Battle Likes / BK Points+ ❤️_Fast, Non Drop..','TikTok - (Saves 🔖)'],
-'TELEGRAM':['Telegram - (👤 Regular Members)','Telegram - (🥰❤️ Reactions/Premium)','Telegram - (👁️+ Views)','Telegram - (🤖 Bot Activity)','Telegram - (Premium Bot Start 🤖)','Telegram Premium 💎','Telegram - (Premium Members 👥)','Telegram - (Future Post Views+ 👀)','Telegram - (Past Post Views+ 👀)','Telegram - (Regular/Premium Channel Boost ⭐)','Telegram - (Shares 📤)','Telegram - (Custom Comments 💬)','Telegram - (Games & Ads 🎮)'],
-'INSTAGRAM':['Instagram - (Targeted Followers 👥)','Instagram - (👁️ Profile Visit)','Instagram - (Engagement + Reach)','Instagram - (Highlight/Story Services)','Instagram - (Mentions 👤)','Instagram - (💬 Comments Custom/Random)','Instagram - (👁️+ Views/Live Viewers)','Instagram - (❤️ Targeted Likes)','Instagram - (shares + Channel Members 👥)','Instagram - (Repost/Post Views 👀)','Instagram - (💾 Saves)'],
-'SNAPCHAT':['Snapchat - (Video Likes+ 👀)','Snapchat - (Spotlight Explore)','Snapchat - (Friend Request 👥🎁)'],
-'WHATSAPP':['WhatsApp - (Channel Members 👥_Online, Non Drop...)','WhatsApp - (Channel Auto Post Reactions 🥰_Future Post...)','WhatsApp - (Channel Post Emoji Reactions 😍❤️🔥)','WhatsApp - (Reactions 😍❤️_Varieties...)','WhatsApp - (Poll Votes 🗳️)'],
-'X / TWITTER':['X / Twitter - (👥 Followers & Analytics)','X / Twitter - (Post & Tweet Views+ 👀+)','X / Twitter - (🗒️ Custom/Random_','X / Twitter - (Clicks 👆_Varieties_','X / Twitter - (Space Listeners 👤)','X / Twitter - (Bookmarks & Impressions 🔖)','X / Twitter - (Mentions)','X / Twitter - (Live Viewers+ 👀)','X / Twitter - (Retweets 🔁)','X / Twitter - (Poll Votes)','X / Twitter - (Likes ❤️_Non drop_'],
-'DISCORD':['Discord - (Server Members)','Discord - (Reactions)'],
-'YOUTUBE':['Youtube _ (👥 Subscribers & Watch Time + 👀)','Youtube _ (👁️+ Views)_Non drop_','Youtube _ (Likes; Videos & Shorts)_Lifetime_','Youtube _ (Live Stream Views+ 👀)','Youtube _ (Comment Likes ❤️)','Youtube _ (Comments ✍️_Custom/Random_'],
-'PLAY STORE':['Play Store - (Installs & Reviews)'],
-'APP STORE':['APP STORE'],
-'WEBSITES':['WEBSITES...']
+const SERVICES={
+'WHATSAPP _ (Channel Members 👥_Online, Non Drop)':[
+{name:'Whatsapp Channel Members [Nigeria] | Max 100K | HQ Profiles | Day 50K',price:546},
+{name:'Whatsapp Channel Members [USA] | Max 100K | HQ Profiles | Day 50K',price:546},
+{name:'Whatsapp Channel Members [Max 10K] | HQ Profiles | Day 50K',price:136},
+{name:'WhatsApp Members [Zero Drop]',price:689},
+],
+'WEBSITES...':[
+{name:'Real Website Traffic | 100% Organic | Google Analytics Verified | Global Reach',price:16},
+{name:'Website Traffic From Wikipedia [WW] [Refill: No] [Max: 10M] [Start Time: 0-1H]',price:45},
+{name:'Website Traffic From Google [WW] [Refill: No] [Max: 1M] [Start: 12H]',price:33},
+{name:'Website Traffic From Wikipedia [WW] [Refill: No] [Max: 250K] [Start: 12H]',price:33},
+{name:'Website Traffic (USA from Google) Speed: 2K/Day - Refill: NO',price:29.9},
+],
+'FACEBOOK':[
+{name:'Facebook Profile Followers (Refill: 90 Days) [Start Time: 0-2 Hours]',price:62},
+{name:'Facebook Page/Profile Followers (Refill: 30 Days) [Max: 1M] [Start Time: Instant]',price:266},
+{name:'Facebook Post Likes [Max: 5K] [Start Time: Up to 2 Hours]',price:150},
+{name:'Facebook Video Views 👀 [Max: 100K] [Start Time: Instant]',price:40},
+],
+'TIKTOK - (Followers; Male/Female 👱_🙍_Real Names)':[
+{name:'TikTok Followers Real Users (Speed: 24K/Day) [Super Quality] [Refill]',price:735},
+{name:'TikTok Followers : [High Quality] [Speed: 1000-2000/D] [Cancel Button Active]',price:591},
+{name:'TikTok Followers (Quality Accounts With Best Name, Profile and Videos) [100%]',price:792},
+{name:'TikTok Followers [REAL] (Refill: 1 Year) [Max: 10K] (Start Time: 4 Hours)',price:841},
+{name:'TikTok Followers [Speed: 50K/D] [High Quality] [Less Drop] [NR]',price:218},
+],
 };
 
-function renderNetworks(list){
- document.getElementById('networkList').innerHTML=list.map(n=>`
-  <div class="cat" onclick="openCat('${n.id}')">
-   <div class="cat-left"><div class="icon ${n.cls}">${n.icon}</div>${n.label}</div>
-   <div class="arrow">›</div>
-  </div>`).join('');
-}
-renderNetworks(networks);
+let curCat=null, curSub=null, curService=null, curPrice=0;
 
-function filter(){
- const q=document.getElementById('search').value.toLowerCase();
- renderNetworks(networks.filter(n=>n.label.toLowerCase().includes(q)));
+function renderMain(list){
+document.getElementById('mainList').innerHTML=list.map(c=>`<div class="item" onclick="openCat('${c.id}')"><div class="l"><div class="ic ${c.cls}">${c.icon}</div>${c.id}</div><div class="arrow">›</div></div>`).join('');
 }
+renderMain(CATS);
+function filterMain(){let q=document.getElementById('searchMain').value.toLowerCase();renderMain(CATS.filter(c=>c.id.toLowerCase().includes(q)))}
 
 function openCat(id){
- document.getElementById('view-home').style.display='none';
- document.getElementById('view-orders').style.display='none';
- document.getElementById('view-menu').style.display='none';
- document.getElementById('view-category').style.display='block';
- document.getElementById('catName').innerText=id;
- const net=networks.find(n=>n.id===id);
- document.getElementById('catIcon').innerHTML=`<div class="icon ${net.cls}" style="margin:0 auto">${net.icon}</div>`;
- document.getElementById('serviceList').innerHTML=(services[id]||[]).map(s=>`
-  <div class="service" onclick="order('${s}')"><div><div style="font-weight:600;font-size:14px">${s}</div></div><div class="arrow">›</div></div>
- `).join('');
+curCat=CATS.find(c=>c.id===id);
+document.getElementById('view-main').style.display='none';
+document.getElementById('view-cat').style.display='block';
+document.getElementById('catTitle').innerText=id;
+document.getElementById('catList').innerHTML=curCat.subs.map(s=>`<div class="item" onclick="openSub('${s.replace(/'/g,"\\'")}')"><div class="l"><div class="ic ${curCat.cls}">${curCat.icon}</div>${s}</div><div class="arrow">›</div></div>`).join('');
 }
+function goMain(){document.querySelectorAll('.view').forEach(v=>v.style.display='none');document.getElementById('view-main').style.display='block'}
 
-function goHome(){
- document.getElementById('view-category').style.display='none';
- document.getElementById('view-orders').style.display='none';
- document.getElementById('view-menu').style.display='none';
- document.getElementById('view-home').style.display='block';
- setActive('orders',false);setActive('menu',false);
+function openSub(sub){
+curSub=sub;
+document.getElementById('view-cat').style.display='none';
+document.getElementById('view-svc').style.display='block';
+document.getElementById('svcTitle').innerText=sub;
+let key = SERVICES[sub]? sub : (sub.includes('WEBSITE')? 'WEBSITES...' : (sub.includes('FACEBOOK')||curCat.id==='FACEBOOK'? 'FACEBOOK' : Object.keys(SERVICES)[0]));
+let list = SERVICES[sub] || SERVICES[key] || SERVICES[Object.keys(SERVICES)[0]];
+if(curCat.id==='FACEBOOK' &&!SERVICES[sub]) list=SERVICES['FACEBOOK'];
+if(curCat.id==='WEBSITES' ) list=SERVICES['WEBSITES...'];
+if(curCat.id==='TIKTOK' && sub.includes('Followers')) list=SERVICES['TikTok - (Followers; Male/Female 👱_🙍_Real Names)'];
+
+document.getElementById('svcList').innerHTML=list.map((s,i)=>`<div class="service-row" onclick="openOrder('${s.name.replace(/'/g,"\\'")}',${s.price})"><p>🛒 ${s.name}</p><span class="price">${s.price} FCFA ›</span></div>`).join('');
+document.getElementById('svcPrice').innerText='Price for 100';
 }
+function goCat(){document.getElementById('view-svc').style.display='none';document.getElementById('view-cat').style.display='block'}
 
-function show(v){
- document.getElementById('view-home').style.display='none';
- document.getElementById('view-category').style.display='none';
- document.getElementById('view-orders').style.display=v==='orders'?'block':'none';
- document.getElementById('view-menu').style.display=v==='menu'?'block':'none';
- setActive('orders',v==='orders');setActive('menu',v==='menu');
+let selectedAmt=1000;
+function openOrder(name,price){
+curService=name;curPrice=price;
+document.getElementById('view-svc').style.display='none';
+document.getElementById('view-order').style.display='block';
+document.getElementById('orderName').innerText=name;
+document.getElementById('orderIcon').innerHTML=`<div class="ic ${curCat.cls}" style="margin:0 auto;width:40px;height:40px">${curCat.icon}</div>`;
+document.getElementById('serviceId').innerText=Math.floor(1000+Math.random()*9000);
+updatePrice();
 }
-function setActive(k,on){document.getElementById('btn-'+k).classList.toggle('active',on)}
-
-function order(name){
- const link=prompt(name+"\n\nPaste your link:");
- if(!link) return;
- const qty=prompt("Quantity (ex: 1000):");
- if(!qty) return;
- const msg=`Hello Neville BOOSTLYPANEL%0A%0AService: ${encodeURIComponent(name)}%0ALink: ${encodeURIComponent(link)}%0AQty: ${qty}`;
- window.open(`https://wa.me/237651234567?text=${msg}`,'_blank');
+function goSvc(){document.getElementById('view-order').style.display='none';document.getElementById('view-svc').style.display='block'}
+function setAmt(a){selectedAmt=a;document.getElementById('orderAmt').innerText=a;document.querySelectorAll('.chip').forEach(c=>c.classList.remove('active'));event.target.classList.add('active');updatePrice()}
+function customAmt(){let a=prompt('Enter amount:');if(a){selectedAmt=parseInt(a);document.getElementById('orderAmt').innerText=selectedAmt;updatePrice()}}
+function updatePrice(){let p=(curPrice*selectedAmt/100).toFixed(2);document.getElementById('orderPrice').innerText=p+' FCFA'}
+function createOrder(){
+let link=document.getElementById('orderLink').value;if(!link){alert('Enter link');return}
+let price=document.getElementById('orderPrice').innerText;
+let orders=JSON.parse(localStorage.getItem('orders')||'[]');
+orders.unshift({service:curService,link,amt:selectedAmt,price,date:new Date().toLocaleString()});
+localStorage.setItem('orders',JSON.stringify(orders));
+let msg=`NEW ORDER%0A%0AService: ${encodeURIComponent(curService)}%0ALink: ${encodeURIComponent(link)}%0AAmount: ${selectedAmt}%0APrice: ${price}`;
+window.open(`https://wa.me/237652706414?text=${msg}`,'_blank');
+alert('Order created! Sent to your WhatsApp 652706414');showOrders();
+}
+function showOrders(){
+document.getElementById('view-main').style.display='none';document.getElementById('view-cat').style.display='none';document.getElementById('view-svc').style.display='none';document.getElementById('view-order').style.display='none';
+document.getElementById('view-orders').style.display='block';
+let orders=JSON.parse(localStorage.getItem('orders')||'[]');
+if(orders.length>0){
+document.getElementById('ordersContent').innerHTML=orders.map(o=>`<div style="border:1px solid #eee;padding:10px;border-radius:10px;margin:8px 0;text-align:left;font-size:13px"><b>${o.service}</b><br>🔗 ${o.link}<br>Qty: ${o.amt} - ${o.price}<br><small>${o.date}</small></div>`).join('');
+}
 }
 </script>
 </body>
